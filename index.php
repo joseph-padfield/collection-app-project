@@ -13,7 +13,7 @@
 <header>
 <div class="banner">
     <div>
-        <h1>Film Collector App</h1>
+        <h1><span style="float: left">Film</span><br><span>Collector</span><br><span style="float: right">App</span></h1>
     </div>
 </div>
 </header>
