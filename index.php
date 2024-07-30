@@ -39,34 +39,35 @@
         ?>
     </div>
     <div class="add_new_item">
+
+<form method='post'>
+
+<label for='title'>Title  </label>
+<input id='title' name='title' type='text' placeholder='Film Title'>
+
+<label for='runtime'>Runtime (mins)  </label>
+<input id='runtime' name='runtime' type='number' placeholder='Runtime'>
+
+<label for='year'>Year released  </label>
+<input id='year' name='year' type='number' placeholder='Release year' maxlength='4'>
+
+<label for='director'>Director  </label>
+<input id='director' name='director' type='text' placeholder='Director'>
+
+<label for='country'>Produced (country)  </label>
+<input id='country' name='country' type='text' placeholder='Produced (country)'>
+
+<label for='language'>Language  </label>
+<input id='language' name='language' type='text' placeholder='Language'>
+
+<label for='image_url'>Image URL  </label>
+<input id='image_url' name='image_url' type='text' placeholder='url'>
+
+<input id='submit' name='submit' type='submit'>
+
+</form>
+
         <?
-        echo "<form method='post'>";
-
-        echo "<label for='title'>Title  </label>";
-        echo "<input id='title' name='title' type='text' placeholder='Film Title'>";
-
-        echo "<label for='runtime'>Runtime (mins)  </label>";
-        echo "<input id='runtime' name='runtime' type='number' placeholder='Runtime'>";
-
-        echo "<label for='year'>Year released  </label>";
-        echo "<input id='year' name='year' type='number' placeholder='Release year' maxlength='4'>";
-
-        echo "<label for='director'>Director  </label>";
-        echo "<input id='director' name='director' type='text' placeholder='Director'>";
-
-        echo "<label for='country'>Produced (country)  </label>";
-        echo "<input id='country' name='country' type='text' placeholder='Produced (country)'>";
-
-        echo "<label for='language'>Language  </label>";
-        echo "<input id='language' name='language' type='text' placeholder='Language'>";
-
-        echo "<label for='image_url'>Image URL  </label>";
-        echo "<input id='image_url' name='image_url' type='text' placeholder='url'>";
-
-        echo "<input id='submit' name='submit' type='submit'>";
-
-        echo "</form>";
-
         if (isset($_POST['submit'])) {
             if (filter_var($_POST['year'], FILTER_VALIDATE_INT) &&
                 filter_var($_POST['runtime'], FILTER_VALIDATE_INT) &&
