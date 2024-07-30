@@ -1,11 +1,9 @@
-<<<<<<< Local Changes
-<<<<<<< Local Changes
 Trello scrum board
 
 Scrum master: Henry
 
 Stories break down into tasks.
-Tasks uploaded to git, create pull reqests for peer review and ultimately trainer review.
+Tasks uploaded to git, create pull requests for peer review and ultimately trainer review.
 
 Story estimations:
 
@@ -40,96 +38,6 @@ Once peer reviewed, merge into main.
 Once story completed it is ready for trainer review.
 
 .DS_Store (gitignore)
-
-
-
-git checkout -b story1_mvp
-
-git checkout -b story1_wireframe
-
-||||||| Old File
-Trello scrum board
-
-Scrum master: Henry
-
-Stories break down into tasks.
-Tasks uploaded to git, create pull reqests for peer review and ultimately trainer review.
-
-Story estimations:
-
-Story 1:
-As a collector
-I want to be able to see stored information about my collection
-So that I can show off to my friends
-
-5 points
-
-Story 2:
-As a collector
-I want to be able to add new items to my collection
-So that I can expand my collection
-
-3 points
-
-Git structure
-
-main
-  ↪ story1-{story name}
-    ↪ s1task1-{task name}
-    ↪ s1task2-{task name}
-    ↪ s1task3-{task name}
-  ↪ story2-{story name}
-    ↪ s2task1-{task name}
-    ↪ s2task2-{task name}
-	
-	
-When you have finished a task, you will make a pull request for peer review.
-Once peer reviewed, merge into main.
-Once story completed it is ready for trainer review.
-
-.DS_Store (gitignore)=======
->>>>>>> External Changes
-
-Scrum master: Henry
-
-Stories break down into tasks.
-Tasks uploaded to git, create pull reqests for peer review and ultimately trainer review.
-
-Story estimations:
-
-Story 1:
-As a collector
-I want to be able to see stored information about my collection
-So that I can show off to my friends
-
-5 points
-
-Story 2:
-As a collector
-I want to be able to add new items to my collection
-So that I can expand my collection
-
-3 points
-
-Git structure
-
-main
-  ↪ story1-{story name}
-    ↪ s1task1-{task name}
-    ↪ s1task2-{task name}
-    ↪ s1task3-{task name}
-  ↪ story2-{story name}
-    ↪ s2task1-{task name}
-    ↪ s2task2-{task name}
-	
-	
-When you have finished a task, you will make a pull request for peer review.
-Once peer reviewed, merge into main.
-Once story completed it is ready for trainer review.
-
-.DS_Store (gitignore)
-
-
 
 git checkout -b story1_mvp
 
@@ -148,7 +56,7 @@ Trello scrum board
 Scrum master: Henry
 
 Stories break down into tasks.
-Tasks uploaded to git, create pull reqests for peer review and ultimately trainer review.
+Tasks uploaded to git, create pull requests for peer review and ultimately trainer review.
 
 Story estimations:
 
@@ -181,5 +89,3 @@ main
 When you have finished a task, you will make a pull request for peer review.
 Once peer reviewed, merge into main.
 Once story completed it is ready for trainer review.
-
-.DS_Store (gitignore)>>>>>>> External Changes
