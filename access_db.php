@@ -4,7 +4,7 @@ $db = new PDO('mysql:host=db; dbname=my_films', 'root', 'password');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-$query = $db->prepare('SELECT * FROM `films`');
+$query = $db->prepare('SELECT `Title`, `Director`, `Year`, `image_url` FROM `films`');
 $query->execute();
 
 $results = $query->fetchAll();
