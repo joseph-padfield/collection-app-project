@@ -10,7 +10,7 @@ $query->execute();
 $results = $query->fetchAll();
 
 foreach ($results as $film){
-    echo '<div class="item">';
+    echo "<div class='item' style='background-image: url({$film['image_url']})'>";
     echo '<p>' . $film['Title'] . '</p>';
     echo '<p>' . $film['Director'] . '</p>';
     echo '<p>' . $film['Year'] . '</p>';

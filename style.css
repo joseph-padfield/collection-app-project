@@ -4,8 +4,8 @@
 }
 
 @font-face {
-    font-family: 'Aachen Regular';
-    src: url('Aachen Regular.ttf') format('opentype');
+    font-family: 'Aachen BT 400';
+    src: url('Aachen BT 400.ttf') format('truetype');
 }
 
 header {
@@ -13,14 +13,34 @@ header {
     flex-direction: column;
     align-items: center;
     background-color: #dd5656;
+    padding: 0 40%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
 }
 h1 {
+    padding: 3rem 5%;
     text-shadow: -1px 5px #000000;
     color: #dcdc47;
     width: 100%;
     font-family: 'Aachen Bold', sans-serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: center;
+    /*letter-spacing: 1rem;*/
+}
+
+p {
+    background-color: rgba(255, 255, 255, 0.81);
+    margin: 0.1rem 2rem;
+    font-family: 'Aachen BT 400', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    padding: 0 0.8rem;
+    text-align: right;
 }
 
 .banner {
@@ -33,8 +53,19 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    /*padding: 3rem 20%;*/
+    width: 80vw;
 }
 
-.item {
-    width: 40%;
+.main_container .item{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 30vh;
+    padding: 1rem;
+    margin: 2rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
