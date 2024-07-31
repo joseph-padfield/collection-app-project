@@ -16,14 +16,35 @@
         <h1>Reels<br>from<br>the<br>Crypt</h1>
     </div>
     <div class="banner_right">
-        <a>Collection</a>
-        <a>Favourites</a>
+        <a>Search</a>
+        <a>Order By</a>
         <a href="#add_item">New Film</a>
     </div>
 </div>
 </header>
 
 <main>
+    <h1 class="collection_header">Favourites</h1>
+    <div class="main_container">
+        <?php
+        require_once('access_db.php');
+        $query = $db->prepare('SELECT `Title`, `Director`, `Year`, `image_url` FROM `films` WHERE `favourite`="y"');
+        $query->execute();
+        $results = $query->fetchAll();
+        foreach ($results as $film){
+            echo "<div>";
+            echo "<div class='item' style='background-image: url({$film['image_url']})'>";
+            echo '</div>';
+            echo "<div>";
+            echo '<p>' . $film['Title'] . '</p>';
+            echo '<p>' . $film['Director'] . '</p>';
+            echo '<p>' . $film['Year'] . '</p>';
+            echo '</div>';
+            echo '</div>';
+
+        }
+        ?>
+    </div>
     <h1 class="collection_header">Collection</h1>
     <div class="main_container">
         <?php
