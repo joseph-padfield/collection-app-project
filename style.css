@@ -11,25 +11,67 @@
 header {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: #dd5656;
-    padding: 0 40%;
+    background-color: #ba0000;
+    height: fit-content;
+}
+
+.drop_button {
+    background-color: #ba0000;
+    text-shadow: -1px 3px #000000;
+    color: #dcdc47;
+    font-family: 'Aachen BT 400', sans-serif;
+    font-size: 1rem;
+    margin-right: 1rem;
+    letter-spacing: 2px;
+    text-decoration: unset;
+    border: unset;
+    padding: 0;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown_content {
+    display: none;
+    position: absolute;
+    background-color: #ba0000;
+    box-shadow: 0 0.5rem 0.5rem 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown_content a {
+    color: black;
+    padding: 5px 5px;
+    display: block;
+}
+
+.dropdown_content a:hover {
+    background-color: #000000;
+    color: #ba0000;
+}
+
+.dropdown:hover .dropdown_content {
+    display: block;
 }
 
 main {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: center;
     background-color: black;
 }
+
 h1 {
-    padding: 3rem 5%;
-    text-shadow: -1px 5px #000000;
+    padding: 0 1%;
+    text-shadow: -3px 3px #000000;
     color: #dcdc47;
-    width: 100%;
     font-family: 'Aachen Bold', sans-serif;
-    font-size: 2.5rem;
-    text-align: center;
+    font-size: 3rem;
+    text-align: right;
+    letter-spacing: 4px;
+    margin: 0.5rem 0 0 2rem;
 }
 
 p {
@@ -42,36 +84,97 @@ p {
     text-align: right;
 }
 
-h1 .left_float {
-    float: left;
-}
-
-h1 .right_float {
-    float: right;
-}
-
 .banner {
-    width: 75%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 240px;
+}
+
+.banner_left {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 2rem;
+}
+
+.banner_right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    padding-left: 2rem;
+}
+
+.banner_right a {
+    text-shadow: -1px 3px #000000;
+    color: #dcdc47;
+    font-family: 'Aachen BT 400', sans-serif;
+    font-size: 1rem;
+    margin-right: 1rem;
+    letter-spacing: 2px;
+    text-decoration: none;
 }
 
 .main_container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
-    width: 80vw;
+    padding-bottom: 2rem;
+    width: 100%;
+    overflow-x: scroll;
 }
 
-.main_container .item{
+.collection_header {
+    text-align: right;
+    font-size: 1.8rem;
+    margin: 3rem 0 0 1rem;
+    color: #ba0000;
+    text-shadow: -2px 2px #dcdc47;
+}
+
+.main_container .item {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    height: 30vh;
+    height: 13vh;
     padding: 1rem;
-    margin: 2rem;
+    margin: 1rem;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.add_new_item {
+    width: 100%;
+    display: flex;
+    padding: 3rem 0;
+    flex-direction: column;
+    background-color: #ba0000;
+    font-family: 'Aachen BT 400', sans-serif;
+    align-items: center;
+}
+
+.add_new_item form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.add_new_item form input {
+    margin: 0.5rem 0 1rem 0;
+}
+
+.add_new_item form label {
+    font-size: 1.5rem;
+}
+
+#submit {
+    background-color: #e4e4e4;
+    color: #555555;
+    box-shadow: -3px 3px #494949;
+    border: unset;
 }
