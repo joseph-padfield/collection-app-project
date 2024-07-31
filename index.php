@@ -19,6 +19,7 @@
         <a href="#search_label">Search</a>
         <div class="dropdown">
             <button class="drop_button">Order By</button>
+
             <div class="dropdown_content">
                 <a href="#">Title</a>
                 <a href="#">Year</a>
@@ -36,66 +37,61 @@
     <h1 class="collection_header">Favourites</h1>
     <div class="main_container">
         <?php
+
+        function return_db($results)
+        {
+            foreach ($results as $film){
+                echo "<div>";
+                echo "<div class='item' style='background-image: url({$film['image_url']})'>";
+                echo '</div>';
+                echo "<div>";
+                echo '<p>' . $film['Title'] . '</p>';
+                echo '<p>' . $film['Director'] . '</p>';
+                echo '<p>' . $film['Year'] . '</p>';
+                echo '</div>';
+                echo '</div>';
+            }
+        }
+
         require_once('access_db.php');
         $query = $db->prepare('SELECT `Title`, `Director`, `Year`, `image_url` FROM `films` WHERE `favourite`="y"');
         $query->execute();
         $results = $query->fetchAll();
-        foreach ($results as $film){
-            echo "<div>";
-            echo "<div class='item' style='background-image: url({$film['image_url']})'>";
-            echo '</div>';
-            echo "<div>";
-            echo '<p>' . $film['Title'] . '</p>';
-            echo '<p>' . $film['Director'] . '</p>';
-            echo '<p>' . $film['Year'] . '</p>';
-            echo '</div>';
-            echo '</div>';
-        }
+        return_db($results);
         ?>
     </div>
     <h1 class="collection_header">Collection</h1>
     <div class="main_container">
         <?php
         require_once('access_db.php');
-        $query = $db->prepare('SELECT `Title`, `Director`, `Year`, `image_url` FROM `films`');
+        $query = $db->prepare('SELECT `Title`, `Director`, `Year`, `image_url` FROM `films` ORDER BY `ID`');
         $query->execute();
         $results = $query->fetchAll();
-        foreach ($results as $film){
-            echo "<div>";
-            echo "<div class='item' style='background-image: url({$film['image_url']})'>";
-            echo '</div>';
-            echo "<div>";
-            echo '<p>' . $film['Title'] . '</p>';
-            echo '<p>' . $film['Director'] . '</p>';
-            echo '<p>' . $film['Year'] . '</p>';
-            echo '</div>';
-            echo '</div>';
-
-        }
+        return_db($results);
         ?>
     </div>
     <div class="add_new_item">
         <form id="add_item" method='post' action="add_item.php">
 
-        <label for='title'>Title  </label>
+        <label for='title'>Title</label>
         <input required id='title' name='title' type='text' placeholder='Film Title'>
 
-        <label for='runtime'>Runtime (mins)  </label>
+        <label for='runtime'>Runtime (mins)</label>
         <input id='runtime' name='runtime' type='number' placeholder='Runtime'>
 
-        <label for='year'>Year released  </label>
+        <label for='year'>Year released</label>
         <input required id='year' name='year' type='number' placeholder='Release year' maxlength='4'>
 
-        <label for='director'>Director  </label>
+        <label for='director'>Director</label>
         <input id='director' name='director' type='text' placeholder='Director'>
 
-        <label for='country'>Produced (country)  </label>
+        <label for='country'>Produced (country)</label>
         <input id='country' name='country' type='text' placeholder='Produced (country)'>
 
-        <label for='language'>Language  </label>
+        <label for='language'>Language</label>
         <input id='language' name='language' type='text' placeholder='Language'>
 
-        <label for='image_url'>Image URL  </label>
+        <label for='image_url'>Image URL</label>
         <input id='image_url' name='image_url' type='text' placeholder='url'>
 
         <input id='submit' name='submit' type='submit' value="submit">

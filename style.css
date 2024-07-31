@@ -29,7 +29,6 @@ header {
 }
 
 .dropdown {
-    position: relative;
     display: inline-block;
 }
 
@@ -44,7 +43,6 @@ header {
 .dropdown_content a {
     color: black;
     padding: 5px 5px;
-    text-decoration: none;
     display: block;
 }
 
@@ -117,7 +115,7 @@ p {
     font-size: 1rem;
     margin-right: 1rem;
     letter-spacing: 2px;
-    text-decoration: unset;
+    text-decoration: none;
 }
 
 .main_container {

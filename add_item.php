@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $director = $_POST['director'];
     $produced = $_POST['country'];
     $language = $_POST['language'];
-    $image_url = filter_var($_POST['image_url'], FILTER_VALIDATE_DOMAIN) ?: null;
+    $image_url = filter_var($_POST['image_url'], FILTER_VALIDATE_URL) ?: null;
 
 
     $query = $db->prepare('INSERT INTO `films` (`Title`, `Running time`, `Year`, `Director`, `Produced`, `Language`, `image_url`) VALUES (:title, :runtime, :year, :director, :country, :language, :image_url)');
