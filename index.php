@@ -16,7 +16,7 @@
         <h1>Reels<br>from<br>the<br>Crypt</h1>
     </div>
     <div class="banner_right">
-        <a>Search</a>
+        <a href="#search_label">Search</a>
         <a>Order By</a>
         <a href="#add_item">New Film</a>
     </div>
@@ -68,16 +68,16 @@
     </div>
     <div class="add_new_item">
 
-<form id="add_item" method='post'>
+<form id="add_item" method='post' action="add_item.php">
 
 <label for='title'>Title  </label>
-<input id='title' name='title' type='text' placeholder='Film Title'>
+<input required id='title' name='title' type='text' placeholder='Film Title'>
 
 <label for='runtime'>Runtime (mins)  </label>
 <input id='runtime' name='runtime' type='number' placeholder='Runtime'>
 
 <label for='year'>Year released  </label>
-<input id='year' name='year' type='number' placeholder='Release year' maxlength='4'>
+<input required id='year' name='year' type='number' placeholder='Release year' maxlength='4'>
 
 <label for='director'>Director  </label>
 <input id='director' name='director' type='text' placeholder='Director'>
@@ -91,44 +91,44 @@
 <label for='image_url'>Image URL  </label>
 <input id='image_url' name='image_url' type='text' placeholder='url'>
 
-<input id='submit' name='submit' type='submit'>
+<input id='submit' name='submit' type='submit' value="submit">
+
 
 </form>
 
-        <?
-        if (isset($_POST['submit'])) {
-            if (filter_var($_POST['year'], FILTER_VALIDATE_INT) &&
-                filter_var($_POST['runtime'], FILTER_VALIDATE_INT) &&
-                filter_var($_POST['image_url'], FILTER_VALIDATE_DOMAIN)) {
-                $title = $_POST['title'];
-                $runtime = $_POST['runtime'];
-                $year = $_POST['year'];
-                $director = $_POST['director'];
-                $produced = $_POST['country'];
-                $language = $_POST['language'];
-                $image_url = $_POST['image_url'];
-                }
-
-
-            $query = $db->prepare('INSERT INTO `films` (`Title`, `Running time`, `Year`, `Director`, `Produced`, `Language`, `image_url`) VALUES (:title, :runtime, :year, :director, :country, :language, :image_url)');
-
-            $query->bindParam(':title', $title);
-            $query->bindParam(':runtime', $runtime);
-            $query->bindParam(':year', $year);
-            $query->bindParam(':director', $director);
-            $query->bindParam(':country', $produced);
-            $query->bindParam(':language', $language);
-            $query->bindParam(':image_url', $image_url);
-
-            $query->execute();
-        }
-        ?>
+<!--        --><?php
+//        if (isset($_POST['submit'])) {
+//                $title = $_POST['title'];
+//                $runtime = filter_var($_POST['runtime'], FILTER_VALIDATE_INT) ?: null;
+//                $year = filter_var($_POST['year'], FILTER_VALIDATE_INT) ?: null;
+//                $director = $_POST['director'];
+//                $produced = $_POST['country'];
+//                $language = $_POST['language'];
+//                $image_url = filter_var($_POST['image_url'], FILTER_VALIDATE_DOMAIN) ?: null;
+//
+//
+//
+//            $query = $db->prepare('INSERT INTO `films` (`Title`, `Running time`, `Year`, `Director`, `Produced`, `Language`, `image_url`) VALUES (:title, :runtime, :year, :director, :country, :language, :image_url)');
+//
+//            $query->bindParam(':title', $title);
+//            $query->bindParam(':runtime', $runtime);
+//            $query->bindParam(':year', $year);
+//            $query->bindParam(':director', $director);
+//            $query->bindParam(':country', $produced);
+//            $query->bindParam(':language', $language);
+//            $query->bindParam(':image_url', $image_url);
+//
+//            $query->execute();
+//
+//        }
+//        ?>
     </div>
 
 </main>
 
 <footer>
-
+    <label id="search_label" for="search">Search</label>
+    <input id='search' name='search' type='text' placeholder='Film Title'>
 </footer>
 
 </body>
