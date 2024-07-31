@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="style.css" rel="stylesheet">
-    <title>Cine Vault</title>
+    <title>Reels from the Crypt</title>
 </head>
 
 <body>
@@ -17,7 +17,16 @@
     </div>
     <div class="banner_right">
         <a href="#search_label">Search</a>
-        <a>Order By</a>
+        <div class="dropdown">
+            <button class="drop_button">Order By</button>
+            <div class="dropdown_content">
+                <a href="#">Title</a>
+                <a href="#">Year</a>
+                <a href="#">Director</a>
+                <a href="#">Country</a>
+                <a href="#">Language</a>
+            </div>
+        </div>
         <a href="#add_item">New Film</a>
     </div>
 </div>
@@ -41,7 +50,6 @@
             echo '<p>' . $film['Year'] . '</p>';
             echo '</div>';
             echo '</div>';
-
         }
         ?>
     </div>
@@ -67,61 +75,32 @@
         ?>
     </div>
     <div class="add_new_item">
+        <form id="add_item" method='post' action="add_item.php">
 
-<form id="add_item" method='post' action="add_item.php">
+        <label for='title'>Title  </label>
+        <input required id='title' name='title' type='text' placeholder='Film Title'>
 
-<label for='title'>Title  </label>
-<input required id='title' name='title' type='text' placeholder='Film Title'>
+        <label for='runtime'>Runtime (mins)  </label>
+        <input id='runtime' name='runtime' type='number' placeholder='Runtime'>
 
-<label for='runtime'>Runtime (mins)  </label>
-<input id='runtime' name='runtime' type='number' placeholder='Runtime'>
+        <label for='year'>Year released  </label>
+        <input required id='year' name='year' type='number' placeholder='Release year' maxlength='4'>
 
-<label for='year'>Year released  </label>
-<input required id='year' name='year' type='number' placeholder='Release year' maxlength='4'>
+        <label for='director'>Director  </label>
+        <input id='director' name='director' type='text' placeholder='Director'>
 
-<label for='director'>Director  </label>
-<input id='director' name='director' type='text' placeholder='Director'>
+        <label for='country'>Produced (country)  </label>
+        <input id='country' name='country' type='text' placeholder='Produced (country)'>
 
-<label for='country'>Produced (country)  </label>
-<input id='country' name='country' type='text' placeholder='Produced (country)'>
+        <label for='language'>Language  </label>
+        <input id='language' name='language' type='text' placeholder='Language'>
 
-<label for='language'>Language  </label>
-<input id='language' name='language' type='text' placeholder='Language'>
+        <label for='image_url'>Image URL  </label>
+        <input id='image_url' name='image_url' type='text' placeholder='url'>
 
-<label for='image_url'>Image URL  </label>
-<input id='image_url' name='image_url' type='text' placeholder='url'>
+        <input id='submit' name='submit' type='submit' value="submit">
 
-<input id='submit' name='submit' type='submit' value="submit">
-
-
-</form>
-
-<!--        --><?php
-//        if (isset($_POST['submit'])) {
-//                $title = $_POST['title'];
-//                $runtime = filter_var($_POST['runtime'], FILTER_VALIDATE_INT) ?: null;
-//                $year = filter_var($_POST['year'], FILTER_VALIDATE_INT) ?: null;
-//                $director = $_POST['director'];
-//                $produced = $_POST['country'];
-//                $language = $_POST['language'];
-//                $image_url = filter_var($_POST['image_url'], FILTER_VALIDATE_DOMAIN) ?: null;
-//
-//
-//
-//            $query = $db->prepare('INSERT INTO `films` (`Title`, `Running time`, `Year`, `Director`, `Produced`, `Language`, `image_url`) VALUES (:title, :runtime, :year, :director, :country, :language, :image_url)');
-//
-//            $query->bindParam(':title', $title);
-//            $query->bindParam(':runtime', $runtime);
-//            $query->bindParam(':year', $year);
-//            $query->bindParam(':director', $director);
-//            $query->bindParam(':country', $produced);
-//            $query->bindParam(':language', $language);
-//            $query->bindParam(':image_url', $image_url);
-//
-//            $query->execute();
-//
-//        }
-//        ?>
+        </form>
     </div>
 
 </main>
@@ -132,5 +111,4 @@
 </footer>
 
 </body>
-
 </html>
