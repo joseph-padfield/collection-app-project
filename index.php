@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="style.css" rel="stylesheet">
-    <title>Films Collector</title>
+    <title>Cine Vault</title>
 </head>
 
 <body>
@@ -13,16 +13,18 @@
 <header>
 <div class="banner">
     <div class="banner_left">
-        <h1><span class="left_float">Film</span><br><span>Collector</span><br><span class="right_float">App</span></h1>
+        <h1>Reels<br>from<br>the<br>Crypt</h1>
     </div>
     <div class="banner_right">
-
+        <a>Collection</a>
+        <a>Favourites</a>
+        <a href="#add_item">New Film</a>
     </div>
 </div>
 </header>
 
 <main>
-
+    <h1 class="collection_header">Collection</h1>
     <div class="main_container">
         <?php
         require_once('access_db.php');
@@ -30,17 +32,22 @@
         $query->execute();
         $results = $query->fetchAll();
         foreach ($results as $film){
+            echo "<div>";
             echo "<div class='item' style='background-image: url({$film['image_url']})'>";
+            echo '</div>';
+            echo "<div>";
             echo '<p>' . $film['Title'] . '</p>';
             echo '<p>' . $film['Director'] . '</p>';
             echo '<p>' . $film['Year'] . '</p>';
             echo '</div>';
+            echo '</div>';
+
         }
         ?>
     </div>
     <div class="add_new_item">
 
-<form method='post'>
+<form id="add_item" method='post'>
 
 <label for='title'>Title  </label>
 <input id='title' name='title' type='text' placeholder='Film Title'>
