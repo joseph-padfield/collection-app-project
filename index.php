@@ -37,8 +37,9 @@
     <h1 class="collection_header">Favourites</h1>
     <div class="main_container">
         <?php
+        require_once('access_db.php');
 
-        function return_db($results)
+        function print_results($results)
         {
             foreach ($results as $film){
                 echo "<div>";
@@ -53,21 +54,19 @@
             }
         }
 
-        require_once('access_db.php');
         $query = $db->prepare('SELECT `Title`, `Director`, `Year`, `image_url` FROM `films` WHERE `favourite`="y"');
         $query->execute();
         $results = $query->fetchAll();
-        return_db($results);
+        print_results($results);
         ?>
     </div>
     <h1 class="collection_header">Collection</h1>
     <div class="main_container">
         <?php
-        require_once('access_db.php');
-        $query = $db->prepare('SELECT `Title`, `Director`, `Year`, `image_url` FROM `films` ORDER BY `ID`');
+        $query = $db->prepare('SELECT `Title`, `Director`, `Year`, `image_url` FROM `films` ORDER BY `id`');
         $query->execute();
         $results = $query->fetchAll();
-        return_db($results);
+        print_results($results);
         ?>
     </div>
     <div class="add_new_item">
