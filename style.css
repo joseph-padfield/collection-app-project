@@ -15,8 +15,11 @@ header {
     height: fit-content;
 }
 
+body {
+    min-width: 344px;
+}
 .drop_button {
-    background-color: #ba0000;
+    background-color: rgba(108, 100, 100, 0);
     text-shadow: -1px 3px #000000;
     color: #dcdc47;
     font-family: 'Aachen BT 400', sans-serif;
@@ -106,6 +109,8 @@ main {
     align-items: flex-end;
     justify-content: center;
     background-color: black;
+    background-image: url("");
+    background-size: auto;
 }
 
 h1 {
@@ -134,6 +139,9 @@ p {
     flex-direction: row;
     width: 100%;
     height: 240px;
+    background-image: url("pngimg.com - bullet_hole_PNG6065.png");
+    background-size: auto;
+    back
 }
 
 .banner_left {
@@ -166,7 +174,7 @@ p {
 .main_container {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     padding-bottom: 2rem;
     width: 100%;
     overflow-x: scroll;
@@ -185,8 +193,8 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: flex-end;
-    height: 13vh;
+    align-items: flex-start;
+    height: 12rem;
     padding: 1rem;
     margin: 1rem;
     background-size: contain;
@@ -202,6 +210,8 @@ p {
     background-color: #ba0000;
     font-family: 'Aachen BT 400', sans-serif;
     align-items: center;
+
+    background-size: cover;
 }
 
 .add_new_item form {
@@ -223,4 +233,38 @@ p {
     color: #555555;
     box-shadow: -3px 3px #494949;
     border: unset;
+}
+
+@media (max-width: 444px) {
+    .dropdown_content {
+        right: 0.5rem;
+    }
+}
+
+@media (min-width: 730px) {
+    .banner_left {
+        width: 60%;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    h1 br {
+        display: none;
+    }
+}
+
+@media (min-width: 900px) {
+    h1 {
+        font-size: 5.5rem;
+    }
+}
+
+@media (min-width: 1300px) {
+    h1 {
+        margin-top: 2rem;
+        width: 700px;
+        font-size: 5.5rem;
+    }
 }

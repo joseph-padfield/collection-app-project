@@ -14,7 +14,7 @@
 
 <div class="banner">
     <div class="banner_left">
-        <h1>Reels<br>from<br>the<br>Crypt</h1>
+        <h1>Reels <br>from <br>the <br>Crypt</h1>
     </div>
 
     <div class="banner_right">
