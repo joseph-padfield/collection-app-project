@@ -52,7 +52,7 @@ header {
 
 .dropdown_content input:hover {
     background-color: #000000;
-    color: #ba0000;
+    /*color: #ba0000;*/
 }
 
 .dropdown:hover .dropdown_content {
@@ -71,6 +71,20 @@ header {
     align-items: center;
     margin: 1.8rem 1rem 0.5rem 1rem;
     gap: 0.3rem;
+}
+
+.sort_select input {
+    display: none;
+}
+
+.sort_select span::before {
+    content: '\2191'; /* Unicode for upwards arrow */
+    font-size: 1rem;
+    margin-right: 8px;
+}
+
+.sort_select input:checked + span::before {
+    content: '\2193';
 }
 
 #sort_submit {
