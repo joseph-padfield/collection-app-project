@@ -21,14 +21,16 @@
         <div class="dropdown">
             <button class="drop_button">Order By</button>
             <form method="get" class="dropdown_content">
-                <span class="label_button_flex_row"><input id="title" name="sort" type="radio" value="title" checked>
+                <span class="label_button_flex_row"><input id="added" name="id" type="radio" value="id">
+                <label for="id">Last added</label></span>
+                <span class="label_button_flex_row"><input id="title" name="sort" type="radio" value="title">
                 <label for="title">Title</label></span>
                 <span class="label_button_flex_row"><input id="year" name="sort" type="radio" value="year">
                 <label for="year">Year</label></span>
                 <span class="label_button_flex_row"><input id="director" name="sort" type="radio" value="director">
                 <label for="director">Director</label></span>
-                <span class="label_button_flex_row"><input id="country" name="sort" type="radio" value="country">
-                <label for="country">Country</label></span>
+                <span class="label_button_flex_row"><input id="produced" name="sort" type="radio" value="produced">
+                <label for="produced">Country</label></span>
                 <span class="label_button_flex_row"><input id="language" name="sort" type="radio" value="language">
                 <label for="language">Language</label></span>
                 <label class="sort_select" for="sort_direction"><input id="sort_direction" name="sort_desc" type="checkbox"><span>Sort asc/desc</span></label>
@@ -62,17 +64,19 @@
                 echo '<p>' . $film['Title'] . '</p>';
                 echo '<p>' . $film['Director'] . '</p>';
                 echo '<p>' . $film['Year'] . '</p>';
+                echo '<p>' . $film['Produced'] . '</p>';
+                echo '<p>' . $film['Language'] . '</p>';
                 echo '</div>';
                 echo '</div>';
             }
         }
-        $columns_to_sort = ['title','director','year','country','language'];
+        $columns_to_sort = ['title','director','year','produced','language'];
 
         if (isset($_GET['sort']) && (in_array($_GET['sort'], $columns_to_sort))){
             $sort = $_GET['sort'];
         }
         else {
-            $sort = 'title';
+            $sort = 'id';
         }
 
         if (isset($_GET['sort_desc']) && ($_GET['sort_desc'] === 'on')) {
@@ -81,7 +85,7 @@
         else {
             $sort_direction = 'ASC';
         }
-        $query = $db->prepare("SELECT `Title`, `Director`, `Year`, `image_url` FROM `films` WHERE `favourite`='y' ORDER BY `" . "$sort" . "` " . "$sort_direction");
+        $query = $db->prepare("SELECT `Title`, `Director`, `Year`,`Produced`,`Language`, `image_url` FROM `films` WHERE `favourite`='y' ORDER BY `" . "$sort" . "` " . "$sort_direction");
         $query->execute();
         $results = $query->fetchAll();
         print_results($results);
@@ -95,7 +99,7 @@
 
         <?php
 
-        $query = $db->prepare("SELECT `Title`, `Director`, `Year`, `image_url` FROM `films` ORDER BY `" . "$sort" . "` " . "$sort_direction");
+        $query = $db->prepare("SELECT `Title`, `Director`, `Year`, `Produced`,`Language`, `image_url` FROM `films` ORDER BY `" . "$sort" . "` " . "$sort_direction");
 
         $query->execute();
         $results = $query->fetchAll();
@@ -105,6 +109,8 @@
     </div>
 
     <div class="add_new_item">
+
+        <h1 class="add_new_item_header">Add New Film</h1>
 
         <form id="add_item" method='post' action="add_item.php">
 
