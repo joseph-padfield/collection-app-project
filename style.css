@@ -65,6 +65,7 @@ header {
     align-items: center;
     gap: 0.5rem;
 }
+
 .sort_select {
     display: flex;
     flex-direction: row;

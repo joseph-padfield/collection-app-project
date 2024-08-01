@@ -82,19 +82,15 @@
         <?php
         $columns_to_sort = ['title','director','year','country','language'];
 
-        if (isset($_GET['sort'])){
-            if (in_array($_GET['sort'], $columns_to_sort)){
-                $sort = $_GET['sort'];
-            }
+        if (isset($_GET['sort']) && (in_array($_GET['sort'], $columns_to_sort))){
+            $sort = $_GET['sort'];
         }
         else {
             $sort = 'title';
         }
 
-        if (isset($_GET['sort_desc'])) {
-            if ($_GET['sort_desc'] === 'on') {
+        if (isset($_GET['sort_desc']) && ($_GET['sort_desc'] === 'on')) {
                 $sort_direction = 'DESC';
-            }
         }
         else {
              $sort_direction = 'ASC';
