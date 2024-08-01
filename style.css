@@ -33,26 +33,56 @@ header {
 }
 
 .dropdown_content {
+    font-family: 'Aachen BT 400', sans-serif;
     display: none;
     position: absolute;
     background-color: #ba0000;
     box-shadow: 0 0.5rem 0.5rem 0 rgba(0,0,0,0.2);
     z-index: 1;
+    color: #dcdc47;
+    text-shadow: -1px 3px #000000;
+    padding: 1rem;
 }
 
-.dropdown_content a {
-    color: black;
-    padding: 5px 5px;
+.dropdown_content input {
+    color: #dcdc47;
     display: block;
+    margin: 0.5rem 0;
 }
 
-.dropdown_content a:hover {
+.dropdown_content input:hover {
     background-color: #000000;
     color: #ba0000;
 }
 
 .dropdown:hover .dropdown_content {
     display: block;
+}
+
+.label_button_flex_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+.sort_select {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1.8rem 1rem 0.5rem 1rem;
+    gap: 0.3rem;
+}
+
+#sort_submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#sort_submit input {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    text-shadow: -1px 3px #000000;
 }
 
 main {

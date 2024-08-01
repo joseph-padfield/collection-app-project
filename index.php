@@ -19,14 +19,20 @@
         <a href="#search_label">Search</a>
         <div class="dropdown">
             <button class="drop_button">Order By</button>
-
-            <div class="dropdown_content">
-                <a href="#">Title</a>
-                <a href="#">Year</a>
-                <a href="#">Director</a>
-                <a href="#">Country</a>
-                <a href="#">Language</a>
-            </div>
+            <form method="get" class="dropdown_content">
+                <span class="label_button_flex_row"><input id="title" name="sort" type="radio" checked>
+                <label for="title">Title</label></span>
+                <span class="label_button_flex_row"><input id="year" name="sort" type="radio">
+                <label for="year">Year</label></span>
+                <span class="label_button_flex_row"><input id="director" name="sort" type="radio">
+                <label for="director">Director</label></span>
+                <span class="label_button_flex_row"><input id="country" name="sort" type="radio">
+                <label for="country">Country</label></span>
+                <span class="label_button_flex_row"><input id="language" name="sort" type="radio">
+                <label for="language">Language</label></span>
+                <label class="sort_select" for="sort_direction"><input id="sort_direction" type="checkbox"><span>Sort asc/desc</span></label>
+                <div id="sort_submit"><input type="submit" value="Sort" ></div>
+            </form>
         </div>
         <a href="#add_item">New Film</a>
     </div>
