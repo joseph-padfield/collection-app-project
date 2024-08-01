@@ -11,31 +11,44 @@
 <body>
 
 <header>
+
 <div class="banner">
     <div class="banner_left">
         <h1>Reels<br>from<br>the<br>Crypt</h1>
     </div>
+
     <div class="banner_right">
-        <a href="#search_label">Search</a>
         <div class="dropdown">
             <button class="drop_button">Order By</button>
-
-            <div class="dropdown_content">
-                <a href="#">Title</a>
-                <a href="#">Year</a>
-                <a href="#">Director</a>
-                <a href="#">Country</a>
-                <a href="#">Language</a>
-            </div>
+            <form method="get" class="dropdown_content">
+                <span class="label_button_flex_row"><input id="title" name="sort" type="radio" value="title" checked>
+                <label for="title">Title</label></span>
+                <span class="label_button_flex_row"><input id="year" name="sort" type="radio" value="year">
+                <label for="year">Year</label></span>
+                <span class="label_button_flex_row"><input id="director" name="sort" type="radio" value="director">
+                <label for="director">Director</label></span>
+                <span class="label_button_flex_row"><input id="country" name="sort" type="radio" value="country">
+                <label for="country">Country</label></span>
+                <span class="label_button_flex_row"><input id="language" name="sort" type="radio" value="language">
+                <label for="language">Language</label></span>
+                <label class="sort_select" for="sort_direction"><input id="sort_direction" name="sort_desc" type="checkbox"><span>Sort asc/desc</span></label>
+                <div id="sort_submit"><input type="submit" value="sort"></div>
+            </form>
         </div>
+
         <a href="#add_item">New Film</a>
+
     </div>
+
 </div>
+
 </header>
 
 <main>
+
     <h1 class="collection_header">Favourites</h1>
     <div class="main_container">
+
         <?php
         require_once('access_db.php');
 
@@ -59,17 +72,45 @@
         $results = $query->fetchAll();
         print_results($results);
         ?>
+
     </div>
+
     <h1 class="collection_header">Collection</h1>
+
     <div class="main_container">
+
         <?php
-        $query = $db->prepare('SELECT `Title`, `Director`, `Year`, `image_url` FROM `films` ORDER BY `id`');
+        $columns_to_sort = ['title','director','year','country','language'];
+
+        if (isset($_GET['sort'])){
+            if (in_array($_GET['sort'], $columns_to_sort)){
+                $sort = $_GET['sort'];
+            }
+        }
+        else {
+            $sort = 'title';
+        }
+
+        if (isset($_GET['sort_desc'])) {
+            if ($_GET['sort_desc'] === 'on') {
+                $sort_direction = 'DESC';
+            }
+        }
+        else {
+             $sort_direction = 'ASC';
+        }
+
+        $query = $db->prepare("SELECT `Title`, `Director`, `Year`, `image_url` FROM `films` ORDER BY `" . "$sort" . "` " . "$sort_direction");
+
         $query->execute();
         $results = $query->fetchAll();
         print_results($results);
         ?>
+
     </div>
+
     <div class="add_new_item">
+
         <form id="add_item" method='post' action="add_item.php">
 
         <label for='title'>Title</label>
@@ -96,13 +137,12 @@
         <input id='submit' name='submit' type='submit' value="submit">
 
         </form>
+
     </div>
 
 </main>
 
 <footer>
-    <label id="search_label" for="search">Search</label>
-    <input id='search' name='search' type='text' placeholder='Film Title'>
 </footer>
 
 </body>
