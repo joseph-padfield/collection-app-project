@@ -37,7 +37,7 @@ header {
     display: none;
     position: absolute;
     background-color: #ba0000;
-    box-shadow: 0 0.5rem 0.5rem 0 rgba(0,0,0,0.2);
+    box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem rgba(0,0,0,0.2);
     z-index: 1;
     color: #dcdc47;
     text-shadow: -1px 3px #000000;
@@ -178,6 +178,7 @@ p {
     margin: 3rem 0 0 1rem;
     color: #ba0000;
     text-shadow: -2px 2px #dcdc47;
+    padding-right: 1rem;
 }
 
 .main_container .item {

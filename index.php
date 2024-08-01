@@ -66,8 +66,22 @@
                 echo '</div>';
             }
         }
+        $columns_to_sort = ['title','director','year','country','language'];
 
-        $query = $db->prepare('SELECT `Title`, `Director`, `Year`, `image_url` FROM `films` WHERE `favourite`="y"');
+        if (isset($_GET['sort']) && (in_array($_GET['sort'], $columns_to_sort))){
+            $sort = $_GET['sort'];
+        }
+        else {
+            $sort = 'title';
+        }
+
+        if (isset($_GET['sort_desc']) && ($_GET['sort_desc'] === 'on')) {
+            $sort_direction = 'DESC';
+        }
+        else {
+            $sort_direction = 'ASC';
+        }
+        $query = $db->prepare("SELECT `Title`, `Director`, `Year`, `image_url` FROM `films` WHERE `favourite`='y' ORDER BY `" . "$sort" . "` " . "$sort_direction");
         $query->execute();
         $results = $query->fetchAll();
         print_results($results);
@@ -80,21 +94,6 @@
     <div class="main_container">
 
         <?php
-        $columns_to_sort = ['title','director','year','country','language'];
-
-        if (isset($_GET['sort']) && (in_array($_GET['sort'], $columns_to_sort))){
-            $sort = $_GET['sort'];
-        }
-        else {
-            $sort = 'title';
-        }
-
-        if (isset($_GET['sort_desc']) && ($_GET['sort_desc'] === 'on')) {
-                $sort_direction = 'DESC';
-        }
-        else {
-             $sort_direction = 'ASC';
-        }
 
         $query = $db->prepare("SELECT `Title`, `Director`, `Year`, `image_url` FROM `films` ORDER BY `" . "$sort" . "` " . "$sort_direction");
 
