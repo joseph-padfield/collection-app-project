@@ -11,10 +11,12 @@
 <body>
 
 <header>
+
 <div class="banner">
     <div class="banner_left">
         <h1>Reels<br>from<br>the<br>Crypt</h1>
     </div>
+
     <div class="banner_right">
         <div class="dropdown">
             <button class="drop_button">Order By</button>
@@ -33,14 +35,20 @@
                 <div id="sort_submit"><input type="submit" value="sort"></div>
             </form>
         </div>
+
         <a href="#add_item">New Film</a>
+
     </div>
+
 </div>
+
 </header>
 
 <main>
+
     <h1 class="collection_header">Favourites</h1>
     <div class="main_container">
+
         <?php
         require_once('access_db.php');
 
@@ -64,9 +72,13 @@
         $results = $query->fetchAll();
         print_results($results);
         ?>
+
     </div>
+
     <h1 class="collection_header">Collection</h1>
+
     <div class="main_container">
+
         <?php
         $columns_to_sort = ['title','director','year','country','language'];
 
@@ -94,8 +106,11 @@
         $results = $query->fetchAll();
         print_results($results);
         ?>
+
     </div>
+
     <div class="add_new_item">
+
         <form id="add_item" method='post' action="add_item.php">
 
         <label for='title'>Title</label>
@@ -122,6 +137,7 @@
         <input id='submit' name='submit' type='submit' value="submit">
 
         </form>
+
     </div>
 
 </main>

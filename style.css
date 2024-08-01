@@ -52,7 +52,7 @@ header {
 
 .dropdown_content input:hover {
     background-color: #000000;
-    /*color: #ba0000;*/
+
 }
 
 .dropdown:hover .dropdown_content {
@@ -78,7 +78,7 @@ header {
 }
 
 .sort_select span::before {
-    content: '\2191'; /* Unicode for upwards arrow */
+    content: '\2191';
     font-size: 1rem;
     margin-right: 8px;
 }
