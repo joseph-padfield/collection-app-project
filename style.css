@@ -11,8 +11,10 @@
 header {
     display: flex;
     flex-direction: column;
-    background-color: #950707;
+    background-color: #7e0d0d;
     height: fit-content;
+    background-image: url("https://www.shutterstock.com/image-photo/bloody-sunset-forest-silhouettes-trees-260nw-1935958063.jpg");
+    background-size: cover;
 }
 
 body {
@@ -21,7 +23,7 @@ body {
 .drop_button {
     background-color: rgba(108, 100, 100, 0);
     text-shadow: -1px 3px #000000;
-    color: #dcdc47;
+    color: rgba(220, 220, 71, 0.91);
     font-family: 'Aachen BT 400', sans-serif;
     font-size: 1rem;
     margin-right: 1rem;
@@ -39,16 +41,16 @@ body {
     font-family: 'Aachen BT 400', sans-serif;
     display: none;
     position: absolute;
-    background-color: #ba0000;
+    background-color: rgba(186, 0, 0, 0.66);
     box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem rgba(0,0,0,0.2);
     z-index: 1;
-    color: #dcdc47;
+    color: rgba(220, 220, 71, 0.91);
     text-shadow: -1px 3px #000000;
     padding: 1rem;
 }
 
 .dropdown_content input {
-    color: #dcdc47;
+    color: rgba(220, 220, 71, 0.91);
     display: block;
     margin: 0.5rem 0;
 }
@@ -115,7 +117,7 @@ main {
 h1 {
     padding: 0 1%;
     text-shadow: -4px 10px #ba0000;
-    color: #dcdc47;
+    color: rgba(220, 220, 71, 0.70);
     font-family: 'Aachen Bold', sans-serif;
     font-size: 3rem;
     text-align: right;
@@ -138,8 +140,6 @@ p {
     flex-direction: row;
     width: 100%;
     height: 240px;
-    background-image: url("pngimg.com - bullet_hole_PNG6065.png");
-    background-size: unset;
 }
 
 .banner_left {
@@ -161,7 +161,7 @@ p {
 
 .banner_right a {
     text-shadow: -1px 3px #000000;
-    color: #dcdc47;
+    color: rgba(220, 220, 71, 0.91);
     font-family: 'Aachen BT 400', sans-serif;
     font-size: 1rem;
     margin-right: 1rem;
@@ -182,8 +182,8 @@ p {
     text-align: right;
     font-size: 1.8rem;
     margin: 3rem 0 0 1rem;
-    color: #dcdc47;
-    text-shadow: -4px 2px #ba0000;
+    color: rgba(220, 220, 71, 0.70);
+    text-shadow: -4px 10px #ba0000;
     padding-right: 1rem;
 }
 
@@ -210,18 +210,16 @@ p {
     display: flex;
     padding: 3rem 0;
     flex-direction: column;
-    background-color: #950707;
+    background-color: #7e0d0d;
     font-family: 'Aachen BT 400', sans-serif;
     align-items: center;
-
-    background-size: cover;
 }
 
 .add_new_item_header {
     text-align: center;
     font-size: 1.8rem;
     margin: 3rem 0 0 1rem;
-    color: #dcdc47;
+    color: rgba(220, 220, 71, 0.87);
     text-shadow: -6px 6px #000000;
     padding-right: 1rem;
     margin-bottom: 1.5rem;
@@ -237,17 +235,40 @@ p {
     margin: 0.5rem 0 1rem 0;
 }
 
+.add_to_favourites {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.add_to_favourites span {
+    margin-left: 0.7rem;
+}
+
 .add_new_item form label {
     text-shadow: -6px 6px #320000;
-    color: #dcdc47;
+    color: rgba(220, 220, 71, 0.87);
     font-size: 1.5rem;
 }
 
 #submit {
-    background-color: #e4e4e4;
+    background-color: rgba(228, 228, 228, 0);
     color: #555555;
-    box-shadow: -3px 3px #494949;
     border: unset;
+    color: rgba(220, 220, 71, 0.87);
+    text-shadow: -6px 6px #000000;
+    font-size: 2rem;
+    margin-top: 1.5rem;
+}
+
+.back_to_top {
+    background-color: rgba(228, 228, 228, 0);
+    color: #555555;
+    color: rgba(220, 220, 71, 0.87);
+    text-shadow: -6px 6px #000000;
+    font-size: 2rem;
+    font-family: 'Aachen BT 400', sans-serif;
+    text-decoration: none;
 }
 
 @media (max-width: 444px) {
@@ -277,11 +298,18 @@ p {
 
     .collection_header {
         text-align: right;
-        font-size: 3rem;
+        font-size: 3.5rem;
         margin: 3rem 0 0 1rem;
-        color: #dcdc47;
+        color: rgba(220, 220, 71, 0.70);
         text-shadow: 0px 10px #ba0000;
         padding-right: 1rem;
+    }
+}
+
+@media (max-width: 1000px){
+    header {
+        background-size: unset;
+        background-position: center center;
     }
 }
 

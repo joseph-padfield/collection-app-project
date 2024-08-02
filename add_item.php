@@ -9,9 +9,13 @@ if (isset($_POST['submit'])) {
     $produced = $_POST['country'];
     $language = $_POST['language'];
     $image_url = filter_var($_POST['image_url'], FILTER_VALIDATE_URL) ?: null;
+    if (isset($_POST['favourite'])){
+        $favourite = ($_POST['favourite']=='on') ? 'Y' : '';
+    }
 
 
-    $query = $db->prepare('INSERT INTO `films` (`Title`, `Running time`, `Year`, `Director`, `Produced`, `Language`, `image_url`) VALUES (:title, :runtime, :year, :director, :country, :language, :image_url)');
+
+    $query = $db->prepare('INSERT INTO `films` (`Title`, `Running time`, `Year`, `Director`, `Produced`, `Language`, `image_url`, `favourite`) VALUES (:title, :runtime, :year, :director, :country, :language, :image_url, :favourite)');
 
     $query->bindParam(':title', $title);
     $query->bindParam(':runtime', $runtime);
@@ -20,6 +24,7 @@ if (isset($_POST['submit'])) {
     $query->bindParam(':country', $produced);
     $query->bindParam(':language', $language);
     $query->bindParam(':image_url', $image_url);
+    $query->bindParam(':favourite', $favourite);
 
     $query->execute();
     header('Location: index.php');

@@ -66,6 +66,7 @@
                 echo '<p>' . $film['Year'] . '</p>';
                 echo '<p>' . $film['Produced'] . '</p>';
                 echo '<p>' . $film['Language'] . '</p>';
+                echo '<p>' . $film['Running time'] . ' mins' . '</p>';
                 echo '</div>';
                 echo '</div>';
             }
@@ -85,7 +86,7 @@
         else {
             $sort_direction = 'ASC';
         }
-        $query = $db->prepare("SELECT `Title`, `Director`, `Year`,`Produced`,`Language`, `image_url` FROM `films` WHERE `favourite`='y' ORDER BY `" . "$sort" . "` " . "$sort_direction");
+        $query = $db->prepare("SELECT `Title`, `Director`, `Year`,`Produced`,`Language`, `image_url`, `Running time` FROM `films` WHERE `favourite`='y' ORDER BY `" . "$sort" . "` " . "$sort_direction");
         $query->execute();
         $results = $query->fetchAll();
         print_results($results);
@@ -99,7 +100,7 @@
 
         <?php
 
-        $query = $db->prepare("SELECT `Title`, `Director`, `Year`, `Produced`,`Language`, `image_url` FROM `films` ORDER BY `" . "$sort" . "` " . "$sort_direction");
+        $query = $db->prepare("SELECT `Title`, `Director`, `Year`, `Produced`,`Language`, `image_url`, `Running time` FROM `films` ORDER BY `" . "$sort" . "` " . "$sort_direction");
 
         $query->execute();
         $results = $query->fetchAll();
@@ -117,14 +118,14 @@
         <label for='title'>Title</label>
         <input required id='title' name='title' type='text' placeholder='Film Title'>
 
-        <label for='runtime'>Runtime (mins)</label>
-        <input id='runtime' name='runtime' type='number' placeholder='Runtime'>
+        <label for='director'>Director</label>
+        <input id='director' name='director' type='text' placeholder='Director'>
 
         <label for='year'>Year released</label>
         <input required id='year' name='year' type='number' placeholder='Release year' maxlength='4'>
 
-        <label for='director'>Director</label>
-        <input id='director' name='director' type='text' placeholder='Director'>
+        <label for='runtime'>Runtime (mins)</label>
+        <input id='runtime' name='runtime' type='number' placeholder='Runtime'>
 
         <label for='country'>Produced (country)</label>
         <input id='country' name='country' type='text' placeholder='Produced (country)'>
@@ -135,16 +136,16 @@
         <label for='image_url'>Image URL</label>
         <input id='image_url' name='image_url' type='text' placeholder='url'>
 
+        <label class="add_to_favourites" for="favourite"><input id="sort_direction" name="favourite" type="checkbox"><span>Add to favourites</span></label>
+
         <input id='submit' name='submit' type='submit' value="submit">
 
         </form>
 
+        <a class="back_to_top" href="#">back to top</a>
     </div>
 
 </main>
-
-<footer>
-</footer>
 
 </body>
 </html>
