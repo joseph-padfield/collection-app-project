@@ -8,6 +8,10 @@
     src: url('Aachen BT 400.ttf') format('truetype');
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 header {
     display: flex;
     flex-direction: column;
